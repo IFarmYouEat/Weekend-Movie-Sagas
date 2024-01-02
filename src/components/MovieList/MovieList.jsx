@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css';
 import { useHistory } from "react-router-dom";
-import MovieDetails from '../MovieDetails/MovieDetails.jsx'
+
 
 
 function MovieList() {
@@ -26,9 +26,9 @@ function MovieList() {
       <section className="movies">
         {movies.map(movie => {
           return (
-            <div data-testid='movieItem' key={movie.id}>
+            <div data-testid="movieItem" key={movie.id}>
               <h3>{movie.title}</h3>
-                <img onClick ={() => movieDetails(movie)}src={movie.poster} alt={movie.title}/>
+                <img data-testid="toDetails" onClick ={() => movieDetails(movie)}src={movie.poster} alt={movie.title}/>
               
             </div>
           );

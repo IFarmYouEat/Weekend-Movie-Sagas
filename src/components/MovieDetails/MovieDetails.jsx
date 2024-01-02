@@ -7,14 +7,24 @@ import { useHistory } from "react-router-dom";
 function MovieDetails() {
 
     const history = useHistory();
-    const movieDetails = useSelector(store => store.movieDetails)
+    const dispatch = useDispatch();
+    const movieDetails = useSelector(store => store.movieDetails);
+    const movieGenres = useSelector(store => store.movieGenres);
+
+    
 
     return (
-        <div>
+        <div data-testid="movieDetails">
             <h1>{movieDetails.title}</h1>
             <img src={movieDetails.poster} alt={movieDetails.title} />
             <p>{movieDetails.description}</p>
-            <button onClick={() => history.push("/")}>Return to all movies</button>
+            <p>Genres:</p>
+            {movieGenres.map(genres => {
+                return (
+                    <p>{genres.name}</p>
+                )
+            })}
+            <button data-testid="toList" onClick={() => history.push("/")}>Return to all movies</button>
         </div>
         
     )
