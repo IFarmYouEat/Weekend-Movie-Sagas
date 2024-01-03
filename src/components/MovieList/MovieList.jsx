@@ -12,8 +12,7 @@ function MovieList() {
   const movies = useSelector(store => store.movies);
 
   const movieDetails = (movie) => {
-    dispatch({ type: 'SET_MOVIE_DETAILS', payload: movie})
-    history.push("/details")
+    history.push(`/details/${movie.id}`)
   }
 
   useEffect(() => {
